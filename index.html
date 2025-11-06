@@ -23,14 +23,20 @@
             font-size: 2.5em;
         }
         
-        /* Estilos para el botón de Ethereum */
-        .ethereum-button {
+        /* Contenedor para los botones */
+        .button-container {
+            margin-bottom: 40px; /* Espacio debajo de los botones y sobre las cards */
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espacio entre los botones */
+        }
+
+        /* Estilos base para todos los botones */
+        .app-button {
             display: inline-block;
-            background-color: #8A2BE2; /* Azul violeta de Ethereum */
             color: white;
             padding: 10px 20px;
-            margin-bottom: 40px;
-            text-decoration: none;
+            text-decoration: none; /* Quita el subrayado del enlace */
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.3s, transform 0.2s;
@@ -38,10 +44,26 @@
             cursor: pointer;
         }
 
+        /* Estilos para el botón de Ethereum */
+        .ethereum-button {
+            background-color: #8A2BE2; /* Azul violeta de Ethereum */
+        }
+
         .ethereum-button:hover {
             background-color: #791bd6;
             transform: translateY(-2px);
         }
+
+        /* Estilos para el nuevo botón de Pagos */
+        .pagos-button {
+            background-color: #007bff; /* Azul estándar */
+        }
+
+        .pagos-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
 
         /* Contenedor de las cartas */
         .card-container {
@@ -53,7 +75,7 @@
             margin: 0 auto;
         }
 
-        /* Estilo de la carta individual */
+        /* Estilo de la carta individual (el resto de estilos de cartas no cambian) */
         .card {
             background-color: #161b22;
             border: 1px solid #30363d;
@@ -71,7 +93,7 @@
             box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
         }
 
-        /* Área de cabecera de la carta (donde está el concepto) */
+        /* Área de cabecera y definición (sin cambios en funcionalidad) */
         .card-header {
             padding: 15px;
             font-size: 1.2em;
@@ -83,104 +105,5 @@
             align-items: center;
         }
 
-        /* Área de la definición */
         .card-definition {
             padding: 0 15px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-            background-color: #21262d;
-        }
-
-        /* Clase para mostrar la definición */
-        .card-definition.active {
-            max-height: 200px; /* Altura suficiente para el texto */
-            padding: 15px;
-        }
-
-        .card-definition p {
-            margin: 0;
-            font-size: 0.9em;
-            line-height: 1.5;
-            color: #bdbdbd;
-        }
-
-    </style>
-</head>
-<body>
-
-    <h1 class="header-title">Hola Cripto: Conceptos Clave de Blockchain</h1>
-    
-    <a href="https://ethereum.org/es/" target="_blank" class="ethereum-button">
-        Ir a la Página Oficial de Ethereum
-    </a>
-
-    <div class="card-container">
-        
-        <div class="card" onclick="toggleDefinition(this)">
-            <div class="card-header">
-                1. Blockchain
-            </div>
-            <div class="card-definition">
-                <p>Es un registro digital, descentralizado y distribuido, que almacena transacciones en bloques encadenados criptográficamente. Una vez que un dato se registra, no puede ser alterado.</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="toggleDefinition(this)">
-            <div class="card-header">
-                2. Descentralización
-            </div>
-            <div class="card-definition">
-                <p>Es la distribución del control y la toma de decisiones lejos de un punto central (como un banco o un gobierno). En la blockchain, la información se almacena en múltiples computadoras (nodos).</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="toggleDefinition(this)">
-            <div class="card-header">
-                3. Hash Criptográfico
-            </div>
-            <div class="card-definition">
-                <p>Es una función matemática que convierte cualquier cantidad de datos en una cadena de caracteres alfanuméricos de longitud fija. Es la huella digital única de un bloque de datos.</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="toggleDefinition(this)">
-            <div class="card-header">
-                4. Minería (Mining)
-            </div>
-            <div class="card-definition">
-                <p>El proceso de validar y agrupar transacciones en un nuevo bloque para añadirlo a la blockchain. A menudo requiere resolver problemas criptográficos (Proof-of-Work).</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="toggleDefinition(this)">
-            <div class="card-header">
-                5. Contrato Inteligente
-            </div>
-            <div class="card-definition">
-                <p>Un programa informático que se ejecuta automáticamente cuando se cumplen condiciones preestablecidas. Están almacenados y ejecutados en la blockchain, haciendo que sean transparentes e inmutables.</p>
-            </div>
-        </div>
-        
-        <div class="card" onclick="toggleDefinition(this)">
-            <div class="card-header">
-                6. DLT (Libro Mayor Distribuido)
-            </div>
-            <div class="card-definition">
-                <p>Una base de datos replicada, compartida y sincronizada geográficamente a través de múltiples sitios, países o instituciones. Blockchain es un tipo específico de DLT.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function toggleDefinition(cardElement) {
-            // Encuentra el elemento de la definición dentro de la carta
-            const definition = cardElement.querySelector('.card-definition');
-            
-            // Alterna la clase 'active' para mostrar/esconder
-            definition.classList.toggle('active');
-        }
-    </script>
-</body>
-</html>
